@@ -1,14 +1,29 @@
 <!DOCTYPE html>
 <html lang="uk">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#071d35">
-  <link rel="manifest" href="manifest.json">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <meta name="theme-color"
+        content="#071d35">
+
+  <link rel="manifest"
+        href="manifest.json">
+
   <title>Безпека Поруч</title>
 
   <style>
-    * { box-sizing: border-box; }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
@@ -17,291 +32,140 @@
       color: #071d35;
     }
 
+    /* =========================
+       HEADER
+    ========================= */
+
     .header {
       background: #071d35;
       color: white;
       text-align: center;
-      padding: 24px 15px;
+      padding: 25px 15px;
     }
 
-    .shield { font-size: 44px; }
+    .shield {
+      font-size: 45px;
+    }
 
     .header h1 {
       margin: 5px 0;
-      font-size: 23px;
+      font-size: 24px;
     }
 
     .header p {
       margin: 0;
-      opacity: .75;
       font-size: 13px;
+      opacity: .75;
     }
 
+    /* =========================
+       CONTAINER
+    ========================= */
+
     .container {
+      width: 100%;
       max-width: 650px;
       margin: auto;
       padding: 18px 15px 40px;
     }
 
+    /* =========================
+       SEARCH
+    ========================= */
+
     .search {
       width: 100%;
-      padding: 15px;
-      border: 0;
-      border-radius: 15px;
-      font-size: 15px;
-      margin-bottom: 15px;
+      border: none;
       outline: none;
+      background: white;
+      border-radius: 15px;
+      padding: 15px;
+      font-size: 16px;
+      margin-bottom: 15px;
+      box-shadow: 0 3px 12px rgba(0,0,0,.06);
     }
+
+    /* =========================
+       CARDS
+    ========================= */
 
     .card {
       background: white;
+
       border-radius: 17px;
+
       padding: 17px;
+
       margin-bottom: 12px;
+
       display: flex;
+
       align-items: center;
+
       gap: 15px;
-      box-shadow: 0 3px 12px rgba(0,0,0,.07);
+
+      box-shadow:
+        0 3px 12px rgba(0,0,0,.07);
+
+      text-decoration: none;
+
+      color: inherit;
+
       cursor: pointer;
+
+      transition: .15s;
     }
 
     .card:active {
-      transform: scale(.98);
+      transform: scale(.97);
     }
 
     .icon {
-      width: 52px;
-      height: 52px;
-      border-radius: 14px;
-      background: #e6edf6;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 27px;
+      width: 54px;
+      height: 54px;
+
       flex-shrink: 0;
+
+      border-radius: 15px;
+
+      background: #e6edf6;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      font-size: 28px;
     }
 
     .card h2 {
       margin: 0 0 5px;
+
       font-size: 17px;
     }
 
     .card p {
       margin: 0;
-      color: #6d7885;
+
+      color: #687582;
+
       font-size: 13px;
     }
+
+    /* =========================
+       PAGES
+    ========================= */
 
     .page {
       display: none;
     }
 
-    .page.active {
+    .page:target {
       display: block;
     }
 
-    .back {
-      display: inline-block;
-      background: white;
-      padding: 11px 15px;
-      border-radius: 12px;
-      margin-bottom: 15px;
-      font-weight: bold;
-      cursor: pointer;
-    }
+    /* Якщо немає hash —
+       показуємо головну */
 
-    .page-title {
-      background: #071d35;
-      color: white;
-      border-radius: 17px;
-      padding: 20px;
-      margin-bottom: 15px;
-    }
-
-    .big-icon {
-      font-size: 38px;
-    }
-
-    .page-title h2 {
-      margin: 7px 0 4px;
-      font-size: 23px;
-    }
-
-    .page-title p {
-      margin: 0;
-      opacity: .75;
-      font-size: 13px;
-    }
-
-    .info {
-      background: white;
-      border-radius: 16px;
-      padding: 18px;
-      margin-bottom: 12px;
-      box-shadow: 0 3px 12px rgba(0,0,0,.07);
-    }
-
-    .info h3 {
-      margin: 0 0 8px;
-      font-size: 17px;
-    }
-
-    .info p {
-      margin: 0;
-      color: #586675;
-      line-height: 1.55;
-      font-size: 14px;
-    }
-
-    .footer {
-      text-align: center;
-      color: #8a96a3;
-      font-size: 12px;
-      padding: 10px 20px 25px;
-    }
-
-    .empty {
-      display: none;
-      text-align: center;
-      color: #7c8792;
-      padding: 30px;
-    }
-  </style>
-</head>
-
-<body>
-
-<header class="header">
-  <div class="shield">🛡️</div>
-  <h1>БЕЗПЕКА ПОРУЧ</h1>
-  <p>Інформаційна система</p>
-</header>
-
-
-<!-- =========================
-     ГОЛОВНА
-========================= -->
-
-<div id="home" class="page active">
-
-  <div class="container">
-
-    <input
-      id="search"
-      class="search"
-      type="search"
-      placeholder="🔎 Пошук..."
-    >
-
-    <div id="cards">
-
-      <div class="card"
-           data-search="перевірки наряд підрозділ"
-           onclick="showPage('checks')">
-
-        <div class="icon">📋</div>
-
-        <div>
-          <h2>Перевірки</h2>
-          <p>Перевірка нарядів та підрозділів</p>
-        </div>
-
-      </div>
-
-
-      <div class="card"
-           data-search="бодікамера bodycam відео"
-           onclick="showPage('bodycams')">
-
-        <div class="icon">📹</div>
-
-        <div>
-          <h2>Бодікамери</h2>
-          <p>Контроль та відеозаписи</p>
-        </div>
-
-      </div>
-
-
-      <div class="card"
-           data-search="радіо радіозв'язок motorola"
-           onclick="showPage('radio')">
-
-        <div class="icon">📻</div>
-
-        <div>
-          <h2>Радіозв'язок</h2>
-          <p>Засоби зв'язку та алгоритми</p>
-        </div>
-
-      </div>
-
-
-      <div class="card"
-           data-search="генератор електрика"
-           onclick="showPage('generator')">
-
-        <div class="icon">⚡</div>
-
-        <div>
-          <h2>Генератори</h2>
-          <p>Безпечна експлуатація</p>
-        </div>
-
-      </div>
-
-
-      <div class="card"
-           data-search="starlink інтернет супутник"
-           onclick="showPage('starlink')">
-
-        <div class="icon">📡</div>
-
-        <div>
-          <h2>Starlink</h2>
-          <p>Підключення та користування</p>
-        </div>
-
-      </div>
-
-
-      <div class="card"
-           data-search="домедична допомога перша допомога"
-           onclick="showPage('firstaid')">
-
-        <div class="icon">🚑</div>
-
-        <div>
-          <h2>Домедична допомога</h2>
-          <p>Короткі алгоритми</p>
-        </div>
-
-      </div>
-
-    </div>
-
-    <div id="empty" class="empty">
-      Нічого не знайдено
-    </div>
-
-  </div>
-
-</div>
-
-
-<!-- =========================
-     ПЕРЕВІРКИ
-========================= -->
-
-<div id="checks" class="page">
-
-  <div class="container">
-
-    <div class="back" onclick="showPage('home')">
-      ← Назад
-    </div>
-
-    <div class="page-title">
-      <div class="big-icon">📋</div>
-      <h2>Перевірки</h2>
-      <p>Конт
+    body:not(:has(.page:target)) #home {
