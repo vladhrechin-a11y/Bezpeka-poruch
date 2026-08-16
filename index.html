@@ -2,9 +2,18 @@
 <html lang="uk">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="theme-color" content="#071d35">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <meta name="theme-color"
+        content="#071d35">
+
+  <meta name="description"
+        content="Інформаційна система Безпека Поруч">
+
+  <link rel="manifest"
+        href="manifest.json">
 
   <title>Безпека Поруч</title>
 
@@ -55,12 +64,19 @@
       border-radius: 18px;
       padding: 19px;
       margin-bottom: 14px;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+
+      box-shadow:
+        0 3px 12px rgba(0,0,0,0.08);
+
       display: flex;
       align-items: center;
       gap: 16px;
+
       cursor: pointer;
-      transition: transform 0.15s;
+
+      transition:
+        transform 0.15s,
+        box-shadow 0.15s;
     }
 
     .card:active {
@@ -70,12 +86,17 @@
     .icon {
       width: 52px;
       height: 52px;
+
       border-radius: 14px;
+
       background: #e7eef7;
+
       display: flex;
       align-items: center;
       justify-content: center;
+
       font-size: 28px;
+
       flex-shrink: 0;
     }
 
@@ -88,110 +109,382 @@
       margin: 0;
       color: #6b7785;
       font-size: 13px;
+      line-height: 1.4;
     }
 
     .button {
       display: block;
+
       width: 100%;
+
       padding: 17px;
+
       margin-top: 22px;
+
       border: 0;
       border-radius: 15px;
+
       background: #071d35;
       color: white;
+
       font-size: 17px;
       font-weight: bold;
+
       text-align: center;
       text-decoration: none;
+
+      cursor: pointer;
+    }
+
+    .button:active {
+      transform: scale(0.98);
     }
 
     .footer {
       text-align: center;
+
       color: #8793a0;
+
       font-size: 12px;
-      padding: 5px 20px 25px;
+
+      padding:
+        5px 20px 25px;
+    }
+
+    /* Екран завантаження */
+
+    #loading {
+      position: fixed;
+
+      inset: 0;
+
+      background: #071d35;
+
+      color: white;
+
+      display: flex;
+
+      flex-direction: column;
+
+      align-items: center;
+      justify-content: center;
+
+      z-index: 9999;
+
+      transition: opacity 0.3s;
+    }
+
+    #loading .loading-icon {
+      font-size: 55px;
+      margin-bottom: 15px;
+    }
+
+    #loading h2 {
+      margin: 0;
+      font-size: 22px;
+    }
+
+    #loading p {
+      opacity: 0.7;
+      font-size: 13px;
+    }
+
+    .hidden {
+      opacity: 0;
+      pointer-events: none;
     }
   </style>
 </head>
 
 <body>
 
-  <div class="header">
-    <div class="shield">🛡️</div>
-    <h1>БЕЗПЕКА ПОРУЧ</h1>
-    <p>Інформаційна система</p>
+  <!-- Екран завантаження -->
+
+  <div id="loading">
+
+    <div class="loading-icon">
+      🛡️
+    </div>
+
+    <h2>БЕЗПЕКА ПОРУЧ</h2>
+
+    <p>Завантаження...</p>
+
   </div>
+
+
+  <!-- Шапка -->
+
+  <div class="header">
+
+    <div class="shield">
+      🛡️
+    </div>
+
+    <h1>
+      БЕЗПЕКА ПОРУЧ
+    </h1>
+
+    <p>
+      Інформаційна система
+    </p>
+
+  </div>
+
+
+  <!-- Основний блок -->
 
   <div class="container">
 
-    <div class="card" onclick="openApp()">
-      <div class="icon">📋</div>
-      <div>
-        <h2>Перевірки</h2>
-        <p>Перевірка нарядів та підрозділів</p>
+
+    <!-- Перевірки -->
+
+    <div class="card"
+         onclick="openApp()">
+
+      <div class="icon">
+        📋
       </div>
+
+      <div>
+
+        <h2>
+          Перевірки
+        </h2>
+
+        <p>
+          Перевірка нарядів та підрозділів
+        </p>
+
+      </div>
+
     </div>
 
-    <div class="card" onclick="openApp()">
-      <div class="icon">📹</div>
-      <div>
-        <h2>Бодікамери</h2>
-        <p>Контроль та робота з відеозаписами</p>
+
+    <!-- Бодікамери -->
+
+    <div class="card"
+         onclick="openApp()">
+
+      <div class="icon">
+        📹
       </div>
+
+      <div>
+
+        <h2>
+          Бодікамери
+        </h2>
+
+        <p>
+          Контроль та робота з відеозаписами
+        </p>
+
+      </div>
+
     </div>
 
-    <div class="card" onclick="openApp()">
-      <div class="icon">📻</div>
-      <div>
-        <h2>Радіозв'язок</h2>
-        <p>Пам'ятки та алгоритми</p>
+
+    <!-- Радіозв'язок -->
+
+    <div class="card"
+         onclick="openApp()">
+
+      <div class="icon">
+        📻
       </div>
+
+      <div>
+
+        <h2>
+          Радіозв'язок
+        </h2>
+
+        <p>
+          Пам'ятки та алгоритми
+        </p>
+
+      </div>
+
     </div>
 
-    <div class="card" onclick="openApp()">
-      <div class="icon">⚡</div>
-      <div>
-        <h2>Генератори</h2>
-        <p>Інструкції та безпечна експлуатація</p>
+
+    <!-- Генератори -->
+
+    <div class="card"
+         onclick="openApp()">
+
+      <div class="icon">
+        ⚡
       </div>
+
+      <div>
+
+        <h2>
+          Генератори
+        </h2>
+
+        <p>
+          Інструкції та безпечна експлуатація
+        </p>
+
+      </div>
+
     </div>
 
-    <div class="card" onclick="openApp()">
-      <div class="icon">📡</div>
-      <div>
-        <h2>Starlink</h2>
-        <p>Налаштування та користування</p>
+
+    <!-- Starlink -->
+
+    <div class="card"
+         onclick="openApp()">
+
+      <div class="icon">
+        📡
       </div>
+
+      <div>
+
+        <h2>
+          Starlink
+        </h2>
+
+        <p>
+          Налаштування та користування
+        </p>
+
+      </div>
+
     </div>
 
-    <div class="card" onclick="openApp()">
-      <div class="icon">🚑</div>
-      <div>
-        <h2>Домедична допомога</h2>
-        <p>Короткі алгоритми дій</p>
+
+    <!-- Домедична допомога -->
+
+    <div class="card"
+         onclick="openApp()">
+
+      <div class="icon">
+        🚑
       </div>
+
+      <div>
+
+        <h2>
+          Домедична допомога
+        </h2>
+
+        <p>
+          Короткі алгоритми дій
+        </p>
+
+      </div>
+
     </div>
 
-    <a class="button" href="#" onclick="openApp(); return false;">
+
+    <!-- Основна кнопка -->
+
+    <a
+      class="button"
+      href="#"
+      onclick="openApp(); return false;">
+
       ВІДКРИТИ ПРОГРАМУ
+
     </a>
 
   </div>
 
+
+  <!-- Нижня частина -->
+
   <div class="footer">
+
     БЕЗПЕКА ПОРУЧ • 2026
+
   </div>
 
+
   <script>
+
+    /*
+      Твій Apps Script
+    */
 
     const APP_URL =
       "https://script.google.com/macros/s/AKfycbyjFySWE0Ma_0dcbd4AvPWeUcpIKdFxVzH2hzY893M8PpHd5H77SkQEnEOoI1q07Mly/exec";
 
+
+    /*
+      Відкрити існуючу програму
+    */
+
     function openApp() {
+
       window.location.href = APP_URL;
+
     }
+
+
+    /*
+      Реєстрація Service Worker
+      Додамо sw.js наступним кроком
+    */
+
+    if ("serviceWorker" in navigator) {
+
+      window.addEventListener(
+        "load",
+        function () {
+
+          navigator.serviceWorker
+            .register("sw.js")
+            .then(function (registration) {
+
+              console.log(
+                "Service Worker зареєстровано:",
+                registration.scope
+              );
+
+            })
+            .catch(function (error) {
+
+              console.log(
+                "Service Worker поки недоступний:",
+                error
+              );
+
+            });
+
+        }
+      );
+
+    }
+
+
+    /*
+      Приховуємо екран завантаження
+    */
+
+    window.addEventListener(
+      "load",
+      function () {
+
+        setTimeout(
+          function () {
+
+            document
+              .getElementById("loading")
+              .classList
+              .add("hidden");
+
+          },
+          500
+        );
+
+      }
+    );
 
   </script>
 
 </body>
-  </html>
+</html>
