@@ -2,18 +2,10 @@
 <html lang="uk">
 <head>
   <meta charset="UTF-8">
-
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
-
-  <meta name="theme-color"
-        content="#071d35">
-
-  <meta name="description"
-        content="Інформаційна система Безпека Поруч">
-
-  <link rel="manifest"
-        href="manifest.json">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#071d35">
+  <meta name="description" content="Інформаційна система Безпека Поруч">
+  <link rel="manifest" href="manifest.json">
 
   <title>Безпека Поруч</title>
 
@@ -32,71 +24,70 @@
     .header {
       background: #071d35;
       color: white;
-      padding: 28px 20px 24px;
+      padding: 24px 18px 22px;
       text-align: center;
     }
 
     .shield {
-      font-size: 48px;
-      margin-bottom: 8px;
+      font-size: 44px;
     }
 
     .header h1 {
-      margin: 0;
-      font-size: 25px;
+      margin: 5px 0 4px;
+      font-size: 23px;
       letter-spacing: 1px;
     }
 
     .header p {
-      margin: 7px 0 0;
-      opacity: 0.8;
-      font-size: 14px;
+      margin: 0;
+      font-size: 13px;
+      opacity: .75;
     }
 
     .container {
-      padding: 20px 16px 30px;
-      max-width: 600px;
+      max-width: 650px;
       margin: auto;
+      padding: 18px 15px 35px;
+    }
+
+    .search {
+      width: 100%;
+      border: none;
+      outline: none;
+      background: white;
+      border-radius: 15px;
+      padding: 15px 17px;
+      font-size: 15px;
+      margin-bottom: 16px;
+      box-shadow: 0 3px 12px rgba(0,0,0,.07);
     }
 
     .card {
       background: white;
-      border-radius: 18px;
-      padding: 19px;
-      margin-bottom: 14px;
-
-      box-shadow:
-        0 3px 12px rgba(0,0,0,0.08);
-
+      border-radius: 17px;
+      padding: 17px;
+      margin-bottom: 12px;
       display: flex;
       align-items: center;
-      gap: 16px;
-
+      gap: 15px;
+      box-shadow: 0 3px 12px rgba(0,0,0,.07);
       cursor: pointer;
-
-      transition:
-        transform 0.15s,
-        box-shadow 0.15s;
+      transition: .15s;
     }
 
     .card:active {
-      transform: scale(0.97);
+      transform: scale(.97);
     }
 
     .icon {
       width: 52px;
       height: 52px;
-
       border-radius: 14px;
-
-      background: #e7eef7;
-
+      background: #e6edf6;
       display: flex;
       align-items: center;
       justify-content: center;
-
-      font-size: 28px;
-
+      font-size: 27px;
       flex-shrink: 0;
     }
 
@@ -107,384 +98,587 @@
 
     .card p {
       margin: 0;
-      color: #6b7785;
+      color: #6d7885;
       font-size: 13px;
-      line-height: 1.4;
     }
 
-    .button {
+    .page {
+      display: none;
+    }
+
+    .page.active {
       display: block;
+    }
 
-      width: 100%;
+    .back {
+      display: inline-block;
+      margin-bottom: 15px;
+      padding: 10px 14px;
+      background: white;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,.06);
+      font-weight: bold;
+    }
 
-      padding: 17px;
-
-      margin-top: 22px;
-
-      border: 0;
-      border-radius: 15px;
-
+    .page-title {
       background: #071d35;
       color: white;
-
-      font-size: 17px;
-      font-weight: bold;
-
-      text-align: center;
-      text-decoration: none;
-
-      cursor: pointer;
+      border-radius: 17px;
+      padding: 20px;
+      margin-bottom: 15px;
     }
 
-    .button:active {
-      transform: scale(0.98);
+    .page-title .big-icon {
+      font-size: 38px;
+    }
+
+    .page-title h2 {
+      margin: 8px 0 4px;
+      font-size: 23px;
+    }
+
+    .page-title p {
+      margin: 0;
+      opacity: .75;
+      font-size: 13px;
+    }
+
+    .info {
+      background: white;
+      border-radius: 16px;
+      padding: 18px;
+      margin-bottom: 12px;
+      box-shadow: 0 3px 12px rgba(0,0,0,.07);
+    }
+
+    .info h3 {
+      margin: 0 0 7px;
+      font-size: 17px;
+    }
+
+    .info p {
+      margin: 0;
+      line-height: 1.5;
+      color: #586675;
+      font-size: 14px;
+    }
+
+    .main-button {
+      width: 100%;
+      border: 0;
+      border-radius: 15px;
+      background: #071d35;
+      color: white;
+      padding: 16px;
+      font-size: 16px;
+      font-weight: bold;
+      margin-top: 8px;
+      cursor: pointer;
     }
 
     .footer {
       text-align: center;
-
-      color: #8793a0;
-
+      color: #8a96a3;
       font-size: 12px;
-
-      padding:
-        5px 20px 25px;
+      padding: 10px 20px 25px;
     }
 
-    /* Екран завантаження */
-
-    #loading {
-      position: fixed;
-
-      inset: 0;
-
-      background: #071d35;
-
-      color: white;
-
-      display: flex;
-
-      flex-direction: column;
-
-      align-items: center;
-      justify-content: center;
-
-      z-index: 9999;
-
-      transition: opacity 0.3s;
-    }
-
-    #loading .loading-icon {
-      font-size: 55px;
-      margin-bottom: 15px;
-    }
-
-    #loading h2 {
-      margin: 0;
-      font-size: 22px;
-    }
-
-    #loading p {
-      opacity: 0.7;
-      font-size: 13px;
-    }
-
-    .hidden {
-      opacity: 0;
-      pointer-events: none;
+    .empty {
+      text-align: center;
+      color: #7c8792;
+      padding: 30px;
+      display: none;
     }
   </style>
 </head>
 
 <body>
 
-  <!-- Екран завантаження -->
-
-  <div id="loading">
-
-    <div class="loading-icon">
-      🛡️
-    </div>
-
-    <h2>БЕЗПЕКА ПОРУЧ</h2>
-
-    <p>Завантаження...</p>
-
-  </div>
+<header class="header">
+  <div class="shield">🛡️</div>
+  <h1>БЕЗПЕКА ПОРУЧ</h1>
+  <p>Інформаційна система</p>
+</header>
 
 
-  <!-- Шапка -->
+<!-- ГОЛОВНА -->
 
-  <div class="header">
-
-    <div class="shield">
-      🛡️
-    </div>
-
-    <h1>
-      БЕЗПЕКА ПОРУЧ
-    </h1>
-
-    <p>
-      Інформаційна система
-    </p>
-
-  </div>
-
-
-  <!-- Основний блок -->
+<div id="home" class="page active">
 
   <div class="container">
 
+    <input
+      id="search"
+      class="search"
+      type="search"
+      placeholder="🔎 Пошук по розділах..."
+    >
 
-    <!-- Перевірки -->
-
-    <div class="card"
-         onclick="openApp()">
-
-      <div class="icon">
-        📋
-      </div>
-
-      <div>
-
-        <h2>
-          Перевірки
-        </h2>
-
-        <p>
-          Перевірка нарядів та підрозділів
-        </p>
-
-      </div>
-
-    </div>
+    <div id="cards">
 
 
-    <!-- Бодікамери -->
+      <div class="card"
+           data-search="перевірки наряди підрозділи"
+           onclick="showPage('checks')">
 
-    <div class="card"
-         onclick="openApp()">
+        <div class="icon">📋</div>
 
-      <div class="icon">
-        📹
-      </div>
-
-      <div>
-
-        <h2>
-          Бодікамери
-        </h2>
-
-        <p>
-          Контроль та робота з відеозаписами
-        </p>
+        <div>
+          <h2>Перевірки</h2>
+          <p>Перевірка нарядів та підрозділів</p>
+        </div>
 
       </div>
 
-    </div>
 
+      <div class="card"
+           data-search="бодікамера bodycam відео"
+           onclick="showPage('bodycams')">
 
-    <!-- Радіозв'язок -->
+        <div class="icon">📹</div>
 
-    <div class="card"
-         onclick="openApp()">
-
-      <div class="icon">
-        📻
-      </div>
-
-      <div>
-
-        <h2>
-          Радіозв'язок
-        </h2>
-
-        <p>
-          Пам'ятки та алгоритми
-        </p>
+        <div>
+          <h2>Бодікамери</h2>
+          <p>Контроль та робота з відеозаписами</p>
+        </div>
 
       </div>
 
-    </div>
 
+      <div class="card"
+           data-search="радіо радіозв'язок motorola"
+           onclick="showPage('radio')">
 
-    <!-- Генератори -->
+        <div class="icon">📻</div>
 
-    <div class="card"
-         onclick="openApp()">
-
-      <div class="icon">
-        ⚡
-      </div>
-
-      <div>
-
-        <h2>
-          Генератори
-        </h2>
-
-        <p>
-          Інструкції та безпечна експлуатація
-        </p>
+        <div>
+          <h2>Радіозв'язок</h2>
+          <p>Пам'ятки та алгоритми</p>
+        </div>
 
       </div>
 
-    </div>
 
+      <div class="card"
+           data-search="генератор електрика світло"
+           onclick="showPage('generator')">
 
-    <!-- Starlink -->
+        <div class="icon">⚡</div>
 
-    <div class="card"
-         onclick="openApp()">
+        <div>
+          <h2>Генератори</h2>
+          <p>Інструкції та безпечна експлуатація</p>
+        </div>
 
-      <div class="icon">
-        📡
       </div>
 
-      <div>
 
-        <h2>
-          Starlink
-        </h2>
+      <div class="card"
+           data-search="starlink інтернет супутник"
+           onclick="showPage('starlink')">
 
-        <p>
-          Налаштування та користування
-        </p>
+        <div class="icon">📡</div>
+
+        <div>
+          <h2>Starlink</h2>
+          <p>Налаштування та користування</p>
+        </div>
+
+      </div>
+
+
+      <div class="card"
+           data-search="домедична допомога перша допомога"
+           onclick="showPage('firstaid')">
+
+        <div class="icon">🚑</div>
+
+        <div>
+          <h2>Домедична допомога</h2>
+          <p>Короткі алгоритми дій</p>
+        </div>
 
       </div>
 
     </div>
 
-
-    <!-- Домедична допомога -->
-
-    <div class="card"
-         onclick="openApp()">
-
-      <div class="icon">
-        🚑
-      </div>
-
-      <div>
-
-        <h2>
-          Домедична допомога
-        </h2>
-
-        <p>
-          Короткі алгоритми дій
-        </p>
-
-      </div>
-
+    <div id="empty" class="empty">
+      Нічого не знайдено
     </div>
-
-
-    <!-- Основна кнопка -->
-
-    <a
-      class="button"
-      href="#"
-      onclick="openApp(); return false;">
-
-      ВІДКРИТИ ПРОГРАМУ
-
-    </a>
 
   </div>
 
+</div>
 
-  <!-- Нижня частина -->
 
-  <div class="footer">
+<!-- ПЕРЕВІРКИ -->
 
-    БЕЗПЕКА ПОРУЧ • 2026
+<div id="checks" class="page">
+
+  <div class="container">
+
+    <div class="back" onclick="showPage('home')">
+      ← Назад
+    </div>
+
+    <div class="page-title">
+      <div class="big-icon">📋</div>
+      <h2>Перевірки</h2>
+      <p>Контроль діяльності підрозділів</p>
+    </div>
+
+    <div class="info">
+      <h3>Перевірка наряду</h3>
+      <p>
+        Алгоритми та основні питання для перевірки наряду.
+      </p>
+    </div>
+
+    <div class="info">
+      <h3>Перевірка підрозділу</h3>
+      <p>
+        Основні напрямки контролю та службові питання.
+      </p>
+    </div>
+
+    <button class="main-button" onclick="openOldApp()">
+      ВІДКРИТИ СИСТЕМУ ПЕРЕВІРОК
+    </button>
 
   </div>
 
-
-  <script>
-
-    /*
-      Твій Apps Script
-    */
-
-    const APP_URL =
-      "https://script.google.com/macros/s/AKfycbyjFySWE0Ma_0dcbd4AvPWeUcpIKdFxVzH2hzY893M8PpHd5H77SkQEnEOoI1q07Mly/exec";
+</div>
 
 
-    /*
-      Відкрити існуючу програму
-    */
+<!-- БОДІКАМЕРИ -->
 
-    function openApp() {
+<div id="bodycams" class="page">
 
-      window.location.href = APP_URL;
+  <div class="container">
+
+    <div class="back" onclick="showPage('home')">
+      ← Назад
+    </div>
+
+    <div class="page-title">
+      <div class="big-icon">📹</div>
+      <h2>Бодікамери</h2>
+      <p>Відеозаписи та контроль</p>
+    </div>
+
+    <div class="info">
+      <h3>Перевірка бодікамер</h3>
+      <p>
+        Наявність, справність, заряд та правильність використання.
+      </p>
+    </div>
+
+    <div class="info">
+      <h3>Відеозаписи</h3>
+      <p>
+        Порядок збереження, передачі та контролю відеоматеріалів.
+      </p>
+    </div>
+
+    <button class="main-button" onclick="openOldApp()">
+      ВІДКРИТИ СИСТЕМУ
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- РАДІО -->
+
+<div id="radio" class="page">
+
+  <div class="container">
+
+    <div class="back" onclick="showPage('home')">
+      ← Назад
+    </div>
+
+    <div class="page-title">
+      <div class="big-icon">📻</div>
+      <h2>Радіозв'язок</h2>
+      <p>Засоби зв'язку та алгоритми</p>
+    </div>
+
+    <div class="info">
+      <h3>Перевірка радіостанцій</h3>
+      <p>
+        Наявність, номер, справність, заряд та видача радіостанцій.
+      </p>
+    </div>
+
+    <div class="info">
+      <h3>Втрата радіостанції</h3>
+      <p>
+        Короткий алгоритм дій у разі втрати засобу зв'язку.
+      </p>
+    </div>
+
+    <button class="main-button" onclick="openOldApp()">
+      ВІДКРИТИ СИСТЕМУ
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- ГЕНЕРАТОР -->
+
+<div id="generator" class="page">
+
+  <div class="container">
+
+    <div class="back" onclick="showPage('home')">
+      ← Назад
+    </div>
+
+    <div class="page-title">
+      <div class="big-icon">⚡</div>
+      <h2>Генератори</h2>
+      <p>Безпечна експлуатація</p>
+    </div>
+
+    <div class="info">
+      <h3>Перед запуском</h3>
+      <p>
+        Перевірити місце встановлення, паливо, кабелі та заземлення.
+      </p>
+    </div>
+
+    <div class="info">
+      <h3>Під час роботи</h3>
+      <p>
+        Дотримуватися правил експлуатації та не допускати перевантаження.
+      </p>
+    </div>
+
+    <button class="main-button" onclick="openOldApp()">
+      ВІДКРИТИ СИСТЕМУ
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- STARLINK -->
+
+<div id="starlink" class="page">
+
+  <div class="container">
+
+    <div class="back" onclick="showPage('home')">
+      ← Назад
+    </div>
+
+    <div class="page-title">
+      <div class="big-icon">📡</div>
+      <h2>Starlink</h2>
+      <p>Підключення та користування</p>
+    </div>
+
+    <div class="info">
+      <h3>Підключення</h3>
+      <p>
+        Встановлення термінала, живлення та підключення до мережі.
+      </p>
+    </div>
+
+    <div class="info">
+      <h3>Мобільний застосунок</h3>
+      <p>
+        Основні кроки налаштування Starlink через мобільний застосунок.
+      </p>
+    </div>
+
+    <div class="info">
+      <h3>Типові проблеми</h3>
+      <p>
+        Що перевірити, якщо термінал не підключається або немає інтернету.
+      </p>
+    </div>
+
+    <button class="main-button" onclick="openOldApp()">
+      ВІДКРИТИ СИСТЕМУ
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- ДОМЕДИЧНА -->
+
+<div id="firstaid" class="page">
+
+  <div class="container">
+
+    <div class="back" onclick="showPage('home')">
+      ← Назад
+    </div>
+
+    <div class="page-title">
+      <div class="big-icon">🚑</div>
+      <h2>Домедична допомога</h2>
+      <p>Короткі алгоритми дій</p>
+    </div>
+
+    <div class="info">
+      <h3>Безпека</h3>
+      <p>
+        Перед наданням допомоги переконатися у відсутності небезпеки для себе.
+      </p>
+    </div>
+
+    <div class="info">
+      <h3>Оцінка постраждалого</h3>
+      <p>
+        Перевірити свідомість, дихання та визначити подальші дії.
+      </p>
+    </div>
+
+    <button class="main-button" onclick="openOldApp()">
+      ВІДКРИТИ СИСТЕМУ
+    </button>
+
+  </div>
+
+</div>
+
+
+<div class="footer">
+  БЕЗПЕКА ПОРУЧ • 2026
+</div>
+
+
+<script>
+
+  const APP_URL =
+    "https://script.google.com/macros/s/AKfycbyjFySWE0Ma_0dcbd4AvPWeUcpIKdFxVzH2hzY893M8PpHd5H77SkQEnEOoI1q07Mly/exec";
+
+
+  function openOldApp() {
+
+    window.location.href = APP_URL;
+
+  }
+
+
+  function showPage(pageId) {
+
+    document
+      .querySelectorAll(".page")
+      .forEach(page => {
+
+        page.classList.remove("active");
+
+      });
+
+
+    const page =
+      document.getElementById(pageId);
+
+
+    if (page) {
+
+      page.classList.add("active");
+
+      window.scrollTo(0, 0);
 
     }
 
+  }
 
-    /*
-      Реєстрація Service Worker
-      Додамо sw.js наступним кроком
-    */
 
-    if ("serviceWorker" in navigator) {
+  const search =
+    document.getElementById("search");
 
-      window.addEventListener(
-        "load",
-        function () {
 
-          navigator.serviceWorker
-            .register("sw.js")
-            .then(function (registration) {
+  const cards =
+    document.querySelectorAll(".card");
 
-              console.log(
-                "Service Worker зареєстровано:",
-                registration.scope
-              );
 
-            })
-            .catch(function (error) {
+  const empty =
+    document.getElementById("empty");
 
-              console.log(
-                "Service Worker поки недоступний:",
-                error
-              );
 
-            });
+  search.addEventListener(
+    "input",
+    function() {
+
+      const query =
+        search.value
+          .toLowerCase()
+          .trim();
+
+
+      let visible = 0;
+
+
+      cards.forEach(card => {
+
+        const text =
+          card
+            .getAttribute("data-search")
+            .toLowerCase();
+
+
+        if (
+          text.includes(query)
+        ) {
+
+          card.style.display = "flex";
+
+          visible++;
+
+        } else {
+
+          card.style.display = "none";
 
         }
-      );
+
+      });
+
+
+      empty.style.display =
+        visible === 0
+          ? "block"
+          : "none";
 
     }
+  );
 
 
-    /*
-      Приховуємо екран завантаження
-    */
+  if ("serviceWorker" in navigator) {
 
     window.addEventListener(
       "load",
-      function () {
+      function() {
 
-        setTimeout(
-          function () {
+        navigator.serviceWorker
+          .register("sw.js")
+          .catch(function(error) {
 
-            document
-              .getElementById("loading")
-              .classList
-              .add("hidden");
+            console.log(
+              "Service Worker:",
+              error
+            );
 
-          },
-          500
-        );
+          });
 
       }
     );
 
-  </script>
+  }
+
+</script>
 
 </body>
 </html>
