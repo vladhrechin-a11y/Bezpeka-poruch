@@ -1,24 +1,54 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Безпека Поруч</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Безпека Поруч</title>
+
+  <link rel="manifest" href="./manifest.json">
+
+  <meta name="theme-color" content="#0057b8">
+
+  <link rel="icon" type="image/png" sizes="192x192" href="./icon-192.png">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f1f5f9;
+      text-align: center;
+    }
+
+    .box {
+      margin: 80px 20px;
+      padding: 30px;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 5px 20px rgba(0,0,0,.15);
+    }
+
+    h1 {
+      color: #0057b8;
+    }
+  </style>
 </head>
 
 <body>
 
-<h1>🛡️ БЕЗПЕКА ПОРУЧ</h1>
+  <div class="box">
+    <h1>🛡️ Безпека Поруч</h1>
+    <p>Тест PWA успішний</p>
+    <p>Якщо ця сторінка відкривається — основа працює.</p>
+  </div>
 
-<p>Сайт працює!</p>
-
-<a href="#starlink">📡 Starlink</a>
-
-<div id="starlink">
-  <h2>📡 Starlink</h2>
-  <p>Розділ відкрився!</p>
-  <a href="#home">← Назад</a>
-</div>
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("./sw.js")
+        .then(() => console.log("PWA Service Worker OK"))
+        .catch(error => console.error("PWA error:", error));
+    }
+  </script>
 
 </body>
 </html>
