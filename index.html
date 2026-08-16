@@ -3,556 +3,1065 @@
 
 <head>
 
-  <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+>
 
-  <title>Безпека Поруч</title>
+<title>Безпека Поруч</title>
 
-  <!-- ========================= -->
-  <!-- PWA -->
-  <!-- ========================= -->
+<meta
+  name="description"
+  content="Практична інформація та інструкції"
+>
 
-  <link
-    rel="manifest"
-    href="./manifest.json"
-  >
+<meta
+  name="theme-color"
+  content="#071d35"
+>
 
-  <link
-    rel="icon"
-    type="image/png"
-    sizes="192x192"
-    href="./icon-192.png"
-  >
+<meta
+  name="mobile-web-app-capable"
+  content="yes"
+>
 
-  <meta
-    name="theme-color"
-    content="#071d35"
-  >
+<meta
+  name="apple-mobile-web-app-capable"
+  content="yes"
+>
 
-  <meta
-    name="mobile-web-app-capable"
-    content="yes"
-  >
+<meta
+  name="apple-mobile-web-app-status-bar-style"
+  content="black-translucent"
+>
 
-  <meta
-    name="apple-mobile-web-app-capable"
-    content="yes"
-  >
+<link
+  rel="manifest"
+  href="./manifest.json"
+>
 
-  <meta
-    name="apple-mobile-web-app-status-bar-style"
-    content="default"
-  >
+<link
+  rel="icon"
+  type="image/png"
+  sizes="192x192"
+  href="./icon-192.png"
+>
 
+<style>
 
-  <!-- ========================= -->
-  <!-- ДИЗАЙН -->
-  <!-- ========================= -->
+* {
+  box-sizing: border-box;
+}
 
-  <style>
+html {
+  scroll-behavior: smooth;
+}
 
-    * {
-      box-sizing: border-box;
-    }
+body {
 
+  margin: 0;
 
-    body {
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
 
-      margin: 0;
+  background:
+    #eef3f8;
 
-      font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
+  color:
+    #071d35;
 
-      background:
-        #eef3f8;
+  min-height:
+    100vh;
 
-      color:
-        #071d35;
+}
 
-    }
+/* ========================= */
+/* HEADER */
+/* ========================= */
 
+header {
 
-    /* ========================= */
-    /* HEADER */
-    /* ========================= */
+  position:
+    sticky;
 
-    header {
+  top:
+    0;
 
-      background:
-        #071d35;
+  z-index:
+    100;
 
-      color:
-        white;
+  background:
+    linear-gradient(
+      135deg,
+      #071d35,
+      #0b3158
+    );
 
-      padding:
-        18px 15px;
+  color:
+    white;
 
-      text-align:
-        center;
+  padding:
+    calc(14px + env(safe-area-inset-top))
+    16px
+    14px;
 
-      position:
-        sticky;
+  box-shadow:
+    0 3px 12px
+    rgba(0,0,0,0.22);
 
-      top:
-        0;
+}
 
-      z-index:
-        100;
+.header-inner {
 
-      box-shadow:
-        0 2px 8px
-        rgba(0,0,0,0.2);
+  max-width:
+    900px;
 
-    }
+  margin:
+    auto;
 
+  display:
+    flex;
 
-    header h1 {
+  align-items:
+    center;
 
-      margin:
-        0;
+  justify-content:
+    space-between;
 
-      font-size:
-        22px;
+  gap:
+    12px;
 
-    }
+}
 
+.logo {
 
-    header p {
+  display:
+    flex;
 
-      margin:
-        5px 0 0;
+  align-items:
+    center;
 
-      font-size:
-        13px;
+  gap:
+    10px;
 
-      opacity:
-        0.85;
+}
 
-    }
+.logo-icon {
 
+  font-size:
+    30px;
 
-    /* ========================= */
-    /* ОСНОВНИЙ КОНТЕЙНЕР */
-    /* ========================= */
+}
 
-    .container {
+.header-title {
 
-      max-width:
-        900px;
+  font-size:
+    19px;
 
-      margin:
-        auto;
+  font-weight:
+    700;
 
-      padding:
-        18px;
+}
 
-    }
+.header-subtitle {
 
+  font-size:
+    12px;
 
-    /* ========================= */
-    /* ЗАГОЛОВОК */
-    /* ========================= */
+  opacity:
+    .8;
 
-    .title {
+  margin-top:
+    2px;
 
-      margin-bottom:
-        15px;
+}
 
-    }
+.status {
 
+  font-size:
+    11px;
 
-    .title h2 {
+  padding:
+    6px 9px;
 
-      margin:
-        0 0 5px;
+  border-radius:
+    20px;
 
-      font-size:
-        24px;
+  background:
+    rgba(255,255,255,.12);
 
-    }
+  white-space:
+    nowrap;
 
+}
 
-    .title p {
+/* ========================= */
+/* CONTAINER */
+/* ========================= */
 
-      margin:
-        0;
+.container {
 
-      color:
-        #64748b;
+  max-width:
+    900px;
 
-    }
+  margin:
+    auto;
 
+  padding:
+    18px 16px
+    calc(30px + env(safe-area-inset-bottom));
 
-    /* ========================= */
-    /* КАРТКИ */
-    /* ========================= */
+}
 
-    .grid {
+/* ========================= */
+/* TOP PANEL */
+/* ========================= */
 
-      display:
-        grid;
+.hero {
 
-      grid-template-columns:
-        repeat(
-          auto-fit,
-          minmax(
-            250px,
-            1fr
-          )
-        );
+  margin-bottom:
+    18px;
 
-      gap:
-        15px;
+}
 
-    }
+.hero h2 {
 
+  margin:
+    0 0 5px;
 
-    .card {
+  font-size:
+    25px;
 
-      background:
-        white;
+}
 
-      border-radius:
-        16px;
+.hero p {
 
-      padding:
-        20px;
+  margin:
+    0;
 
-      box-shadow:
-        0 3px 12px
-        rgba(0,0,0,0.10);
+  color:
+    #64748b;
 
-      cursor:
-        pointer;
+}
 
-      transition:
-        0.2s;
+/* ========================= */
+/* SEARCH */
+/* ========================= */
 
-      border:
-        1px solid
-        #e2e8f0;
+.search-box {
 
-    }
+  position:
+    relative;
 
+  margin:
+    16px 0;
 
-    .card:hover {
+}
 
-      transform:
-        translateY(-2px);
+.search-box input {
 
-      box-shadow:
-        0 6px 18px
-        rgba(0,0,0,0.15);
+  width:
+    100%;
 
-    }
+  border:
+    1px solid #d6dee8;
 
+  border-radius:
+    14px;
 
-    .icon {
+  padding:
+    14px 16px 14px 44px;
 
-      font-size:
-        38px;
+  font-size:
+    16px;
 
-      margin-bottom:
-        10px;
+  outline:
+    none;
 
-    }
+  background:
+    white;
 
+  box-shadow:
+    0 2px 8px
+    rgba(0,0,0,.05);
 
-    .card h3 {
+}
 
-      margin:
-        0 0 8px;
+.search-box input:focus {
 
-      font-size:
-        19px;
+  border-color:
+    #0057b8;
 
-    }
+  box-shadow:
+    0 0 0 3px
+    rgba(0,87,184,.12);
 
+}
 
-    .card p {
+.search-icon {
 
-      margin:
-        0;
+  position:
+    absolute;
 
-      color:
-        #64748b;
+  left:
+    15px;
 
-      line-height:
-        1.4;
+  top:
+    50%;
 
-    }
+  transform:
+    translateY(-50%);
 
+  font-size:
+    20px;
 
-    /* ========================= */
-    /* КНОПКА */
-    /* ========================= */
+}
 
-    .back {
+/* ========================= */
+/* ACTIONS */
+/* ========================= */
 
-      display:
-        inline-block;
+.actions {
 
-      background:
-        #0057b8;
+  display:
+    flex;
 
-      color:
-        white;
+  gap:
+    9px;
 
-      border:
-        none;
+  margin-bottom:
+    17px;
 
-      border-radius:
-        10px;
+}
 
-      padding:
-        12px 18px;
+.action-btn {
 
-      font-size:
-        16px;
+  flex:
+    1;
 
-      cursor:
-        pointer;
+  border:
+    none;
 
-      margin-bottom:
-        18px;
+  border-radius:
+    12px;
 
-    }
+  padding:
+    11px 10px;
 
+  background:
+    white;
 
-    /* ========================= */
-    /* КРОК */
-    /* ========================= */
+  color:
+    #071d35;
 
-    .step {
+  font-size:
+    13px;
 
-      background:
-        white;
+  font-weight:
+    600;
 
-      border-radius:
-        16px;
+  box-shadow:
+    0 2px 8px
+    rgba(0,0,0,.08);
 
-      padding:
-        20px;
+  cursor:
+    pointer;
 
-      margin-bottom:
-        15px;
+}
 
-      box-shadow:
-        0 3px 12px
-        rgba(0,0,0,0.10);
+.action-btn:active {
 
-    }
+  transform:
+    scale(.98);
 
+}
 
-    .step-number {
+/* ========================= */
+/* GRID */
+/* ========================= */
 
-      display:
-        inline-block;
+.grid {
 
-      background:
-        #0057b8;
+  display:
+    grid;
 
-      color:
-        white;
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(
+        250px,
+        1fr
+      )
+    );
 
-      border-radius:
-        50%;
+  gap:
+    15px;
 
-      width:
-        38px;
+}
 
-      height:
-        38px;
+/* ========================= */
+/* CARD */
+/* ========================= */
 
-      line-height:
-        38px;
+.card {
 
-      text-align:
-        center;
+  background:
+    white;
 
-      font-weight:
-        bold;
+  border-radius:
+    17px;
 
-      margin-right:
-        8px;
+  padding:
+    20px;
 
-    }
+  box-shadow:
+    0 3px 12px
+    rgba(0,0,0,.09);
 
+  cursor:
+    pointer;
 
-    .step h3 {
+  border:
+    1px solid
+    #e2e8f0;
 
-      display:
-        inline;
+  transition:
+    transform .15s,
+    box-shadow .15s;
 
-      font-size:
-        19px;
+}
 
-    }
+.card:hover {
 
+  transform:
+    translateY(-2px);
 
-    .step p {
+  box-shadow:
+    0 7px 18px
+    rgba(0,0,0,.14);
 
-      line-height:
-        1.6;
+}
 
-      white-space:
-        pre-line;
+.card:active {
 
-    }
+  transform:
+    scale(.98);
 
+}
 
-    /* ========================= */
-    /* ЗОБРАЖЕННЯ */
-    /* ========================= */
+.icon {
 
-    .step img {
+  font-size:
+    38px;
 
-      width:
-        100%;
+  margin-bottom:
+    10px;
 
-      max-height:
-        500px;
+}
 
-      object-fit:
-        contain;
+.card h3 {
 
-      border-radius:
-        12px;
+  margin:
+    0 0 7px;
 
-      margin-top:
-        10px;
+  font-size:
+    19px;
 
-      background:
-        #f1f5f9;
+}
 
-    }
+.card p {
 
+  margin:
+    0;
 
-    /* ========================= */
-    /* СТАН */
-    /* ========================= */
+  color:
+    #64748b;
 
-    .loading {
+  line-height:
+    1.4;
 
-      text-align:
-        center;
+}
 
-      padding:
-        50px 20px;
+/* ========================= */
+/* BACK BUTTON */
+/* ========================= */
 
-      color:
-        #64748b;
+.back {
 
-      font-size:
-        17px;
+  border:
+    none;
 
-    }
+  background:
+    #0057b8;
 
+  color:
+    white;
 
-    .error {
+  border-radius:
+    11px;
 
-      background:
-        #fee2e2;
+  padding:
+    11px 17px;
 
-      color:
-        #991b1b;
+  font-size:
+    15px;
 
-      padding:
-        18px;
+  font-weight:
+    600;
 
-      border-radius:
-        12px;
+  cursor:
+    pointer;
 
-      line-height:
-        1.5;
+  margin-bottom:
+    17px;
 
-    }
+}
 
+/* ========================= */
+/* STEP */
+/* ========================= */
 
-    .empty {
+.step {
 
-      text-align:
-        center;
+  background:
+    white;
 
-      padding:
-        40px;
+  border-radius:
+    17px;
 
-      color:
-        #64748b;
+  padding:
+    19px;
 
-    }
+  margin-bottom:
+    15px;
 
-  </style>
+  box-shadow:
+    0 3px 12px
+    rgba(0,0,0,.09);
+
+}
+
+.step-header {
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  gap:
+    9px;
+
+}
+
+.step-number {
+
+  flex:
+    0 0 38px;
+
+  width:
+    38px;
+
+  height:
+    38px;
+
+  border-radius:
+    50%;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  background:
+    #0057b8;
+
+  color:
+    white;
+
+  font-weight:
+    700;
+
+}
+
+.step h3 {
+
+  margin:
+    0;
+
+  font-size:
+    19px;
+
+}
+
+.step p {
+
+  line-height:
+    1.6;
+
+  white-space:
+    pre-line;
+
+}
+
+.step img {
+
+  width:
+    100%;
+
+  max-height:
+    500px;
+
+  object-fit:
+    contain;
+
+  border-radius:
+    12px;
+
+  margin-top:
+    10px;
+
+  background:
+    #f1f5f9;
+
+}
+
+/* ========================= */
+/* VIDEO */
+/* ========================= */
+
+.video-link {
+
+  display:
+    inline-block;
+
+  margin-top:
+    5px;
+
+  padding:
+    10px 14px;
+
+  border-radius:
+    10px;
+
+  background:
+    #071d35;
+
+  color:
+    white;
+
+  text-decoration:
+    none;
+
+}
+
+/* ========================= */
+/* LOADING */
+/* ========================= */
+
+.loading {
+
+  text-align:
+    center;
+
+  padding:
+    55px 20px;
+
+  color:
+    #64748b;
+
+  font-size:
+    17px;
+
+}
+
+.spinner {
+
+  width:
+    34px;
+
+  height:
+    34px;
+
+  border:
+    4px solid #dbe5ef;
+
+  border-top-color:
+    #0057b8;
+
+  border-radius:
+    50%;
+
+  animation:
+    spin .8s linear infinite;
+
+  margin:
+    0 auto 15px;
+
+}
+
+@keyframes spin {
+
+  to {
+    transform:
+      rotate(360deg);
+  }
+
+}
+
+/* ========================= */
+/* ERROR */
+/* ========================= */
+
+.error {
+
+  background:
+    #fee2e2;
+
+  color:
+    #991b1b;
+
+  padding:
+    18px;
+
+  border-radius:
+    14px;
+
+  line-height:
+    1.5;
+
+}
+
+/* ========================= */
+/* EMPTY */
+/* ========================= */
+
+.empty {
+
+  text-align:
+    center;
+
+  padding:
+    45px 20px;
+
+  color:
+    #64748b;
+
+}
+
+/* ========================= */
+/* INSTALL */
+/* ========================= */
+
+.install-banner {
+
+  display:
+    none;
+
+  background:
+    #0057b8;
+
+  color:
+    white;
+
+  border-radius:
+    15px;
+
+  padding:
+    13px;
+
+  margin-bottom:
+    16px;
+
+  align-items:
+    center;
+
+  gap:
+    10px;
+
+}
+
+.install-banner button {
+
+  margin-left:
+    auto;
+
+  border:
+    none;
+
+  border-radius:
+    9px;
+
+  padding:
+    9px 12px;
+
+  font-weight:
+    700;
+
+  cursor:
+    pointer;
+
+}
+
+/* ========================= */
+/* FOOTER */
+/* ========================= */
+
+footer {
+
+  text-align:
+    center;
+
+  color:
+    #94a3b8;
+
+  font-size:
+    12px;
+
+  padding:
+    20px;
+
+}
+
+/* ========================= */
+/* MOBILE */
+/* ========================= */
+
+@media(max-width:600px) {
+
+  .container {
+
+    padding:
+      16px 12px 30px;
+
+  }
+
+  .grid {
+
+    grid-template-columns:
+      1fr;
+
+  }
+
+  .card {
+
+    padding:
+      18px;
+
+  }
+
+  .hero h2 {
+
+    font-size:
+      23px;
+
+  }
+
+}
+
+</style>
 
 </head>
 
-
 <body>
-
-
-<!-- ================================================= -->
-<!-- HEADER -->
-<!-- ================================================= -->
 
 <header>
 
-  <h1>
-    🛡️ БЕЗПЕКА ПОРУЧ
-  </h1>
+  <div class="header-inner">
 
-  <p>
-    Практична інформація та інструкції
-  </p>
+    <div class="logo">
+
+      <div class="logo-icon">
+        🛡️
+      </div>
+
+      <div>
+
+        <div class="header-title">
+          БЕЗПЕКА ПОРУЧ
+        </div>
+
+        <div class="header-subtitle">
+          Практична інформація та інструкції
+        </div>
+
+      </div>
+
+    </div>
+
+    <div
+      class="status"
+      id="connectionStatus"
+    >
+      ● Перевірка...
+    </div>
+
+  </div>
 
 </header>
 
+<div class="container">
 
-<!-- ================================================= -->
-<!-- APP -->
-<!-- ================================================= -->
+  <div
+    class="install-banner"
+    id="installBanner"
+  >
 
-<div
-  class="container"
-  id="app"
->
+    <span>
+      📱 Встановити програму
+    </span>
 
-  <div class="loading">
+    <button
+      id="installButton"
+    >
+      Встановити
+    </button>
 
-    Завантаження...
+  </div>
+
+  <div id="app">
+
+    <div class="loading">
+
+      <div class="spinner"></div>
+
+      Завантаження...
+
+    </div>
 
   </div>
 
 </div>
 
+<footer>
+
+  Безпека Поруч
+
+</footer>
 
 <script>
 
-
-// =====================================================
-// НАЛАШТУВАННЯ
-// =====================================================
+/* =====================================================
+   GOOGLE APPS SCRIPT
+===================================================== */
 
 const API_URL =
   'https://script.google.com/macros/s/AKfycbyQuGOzPdzy-p8_V3xD4K91ZAksG7bp4Y9JUZodreiXpRUtfY6awr6ceA5G4tKrhnvs/exec';
 
 
-// =====================================================
-// DOM
-// =====================================================
+/* =====================================================
+   DOM
+===================================================== */
 
 const app =
   document.getElementById('app');
 
+const statusElement =
+  document.getElementById('connectionStatus');
 
-// =====================================================
-// ЗАПИТ ДО API
-// =====================================================
+let allSections = [];
+
+let deferredInstallPrompt = null;
+
+
+/* =====================================================
+   PWA INSTALL
+===================================================== */
+
+window.addEventListener(
+  'beforeinstallprompt',
+  function(event) {
+
+    event.preventDefault();
+
+    deferredInstallPrompt =
+      event;
+
+    document
+      .getElementById('installBanner')
+      .style.display =
+      'flex';
+
+  }
+);
+
+
+document
+  .getElementById('installButton')
+  .addEventListener(
+    'click',
+    async function() {
+
+      if (!deferredInstallPrompt) {
+        return;
+      }
+
+      deferredInstallPrompt.prompt();
+
+      await deferredInstallPrompt.userChoice;
+
+      deferredInstallPrompt =
+        null;
+
+      document
+        .getElementById('installBanner')
+        .style.display =
+        'none';
+
+    }
+  );
+
+
+/* =====================================================
+   ONLINE / OFFLINE
+===================================================== */
+
+function updateConnectionStatus() {
+
+  if (navigator.onLine) {
+
+    statusElement.textContent =
+      '● Онлайн';
+
+    statusElement.style.color =
+      '#9cffb0';
+
+  } else {
+
+    statusElement.textContent =
+      '● Офлайн';
+
+    statusElement.style.color =
+      '#ffb4b4';
+
+  }
+
+}
+
+window.addEventListener(
+  'online',
+  updateConnectionStatus
+);
+
+window.addEventListener(
+  'offline',
+  updateConnectionStatus
+);
+
+updateConnectionStatus();
+
+
+/* =====================================================
+   API
+===================================================== */
 
 async function apiRequest(
   action,
@@ -567,7 +1076,6 @@ async function apiRequest(
     action
   );
 
-
   Object.keys(params).forEach(
     function(key) {
 
@@ -578,7 +1086,6 @@ async function apiRequest(
 
     }
   );
-
 
   const response =
     await fetch(
@@ -592,7 +1099,6 @@ async function apiRequest(
       }
     );
 
-
   if (!response.ok) {
 
     throw new Error(
@@ -602,10 +1108,8 @@ async function apiRequest(
 
   }
 
-
   const data =
     await response.json();
-
 
   if (!data.success) {
 
@@ -616,15 +1120,39 @@ async function apiRequest(
 
   }
 
-
   return data.data;
 
 }
 
 
-// =====================================================
-// ПОМИЛКА
-// =====================================================
+/* =====================================================
+   HTML SECURITY
+===================================================== */
+
+function escapeHtml(value) {
+
+  return String(value || '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+
+}
+
+
+function escapeAttribute(value) {
+
+  return String(value || '')
+    .replace(/\\/g, '\\\\')
+    .replace(/'/g, "\\'");
+
+}
+
+
+/* =====================================================
+   ERROR
+===================================================== */
 
 function showError(error) {
 
@@ -666,53 +1194,36 @@ function showError(error) {
 }
 
 
-// =====================================================
-// ЗАХИСТ HTML
-// =====================================================
+/* =====================================================
+   LOADING
+===================================================== */
 
-function escapeHtml(value) {
-
-  return String(value || '')
-    .replace(
-      /&/g,
-      '&amp;'
-    )
-    .replace(
-      /</g,
-      '&lt;'
-    )
-    .replace(
-      />/g,
-      '&gt;'
-    )
-    .replace(
-      /"/g,
-      '&quot;'
-    )
-    .replace(
-      /'/g,
-      '&#039;'
-    );
-
-}
-
-
-// =====================================================
-// ГОЛОВНА
-// =====================================================
-
-async function loadSections() {
+function showLoading(text) {
 
   app.innerHTML = `
 
     <div class="loading">
 
-      ⏳ Завантаження розділів...
+      <div class="spinner"></div>
+
+      ${escapeHtml(text)}
 
     </div>
 
   `;
 
+}
+
+
+/* =====================================================
+   LOAD SECTIONS
+===================================================== */
+
+async function loadSections() {
+
+  showLoading(
+    'Завантаження розділів...'
+  );
 
   try {
 
@@ -721,27 +1232,27 @@ async function loadSections() {
         'sections'
       );
 
+    allSections =
+      sections || [];
 
     renderSections(
-      sections
+      allSections
     );
-
 
   }
+
   catch(error) {
 
-    showError(
-      error
-    );
+    showError(error);
 
   }
 
 }
 
 
-// =====================================================
-// ПОКАЗ РОЗДІЛІВ
-// =====================================================
+/* =====================================================
+   RENDER SECTIONS
+===================================================== */
 
 function renderSections(
   sections
@@ -777,7 +1288,7 @@ function renderSections(
 
   let html = `
 
-    <div class="title">
+    <div class="hero">
 
       <h2>
         Розділи
@@ -789,7 +1300,45 @@ function renderSections(
 
     </div>
 
-    <div class="grid">
+
+    <div class="search-box">
+
+      <span class="search-icon">
+        🔎
+      </span>
+
+      <input
+        id="searchInput"
+        type="search"
+        placeholder="Пошук інструкції..."
+        autocomplete="off"
+      >
+
+    </div>
+
+
+    <div class="actions">
+
+      <button
+        class="action-btn"
+        onclick="loadSections()"
+      >
+        🔄 Оновити
+      </button>
+
+      <button
+        class="action-btn"
+        onclick="testConnection()"
+      >
+        📡 Тест підключення
+      </button>
+
+    </div>
+
+    <div
+      class="grid"
+      id="sectionsGrid"
+    >
 
   `;
 
@@ -809,32 +1358,31 @@ function renderSections(
         section['Опис'] ||
         '';
 
+      const id =
+        section['ID'] ||
+        '';
+
 
       html += `
 
         <div
           class="card"
-          onclick="openSection('${escapeAttribute(
-            section['ID']
-          )}')"
+          data-search="${escapeHtml(
+            name + ' ' + description
+          )}"
+          onclick="openSection('${escapeAttribute(id)}')"
         >
 
           <div class="icon">
-
             ${escapeHtml(icon)}
-
           </div>
 
           <h3>
-
             ${escapeHtml(name)}
-
           </h3>
 
           <p>
-
             ${escapeHtml(description)}
-
           </p>
 
         </div>
@@ -855,33 +1403,50 @@ function renderSections(
   app.innerHTML =
     html;
 
-}
 
-
-// =====================================================
-// ЗАХИСТ АТРИБУТА
-// =====================================================
-
-function escapeAttribute(
-  value
-) {
-
-  return String(value || '')
-    .replace(
-      /\\/g,
-      '\\\\'
-    )
-    .replace(
-      /'/g,
-      "\\'"
+  const searchInput =
+    document.getElementById(
+      'searchInput'
     );
 
+
+  searchInput.addEventListener(
+    'input',
+    function() {
+
+      const query =
+        searchInput.value
+          .toLowerCase()
+          .trim();
+
+      document
+        .querySelectorAll(
+          '#sectionsGrid .card'
+        )
+        .forEach(
+          function(card) {
+
+            const text =
+              card.dataset.search
+                .toLowerCase();
+
+            card.style.display =
+              text.includes(query)
+                ? ''
+                : 'none';
+
+          }
+        );
+
+    }
+  );
+
 }
 
 
-// =====================================================
-// ВІДКРИТТЯ РОЗДІЛУ
-// =====================================================
+/* =====================================================
+   OPEN SECTION
+===================================================== */
 
 async function openSection(
   sectionId
@@ -893,17 +1458,14 @@ async function openSection(
       class="back"
       onclick="loadSections()"
     >
-      ← Назад
+      ← До розділів
     </button>
-
-    <div class="loading">
-
-      ⏳ Завантаження інструкції...
-
-    </div>
 
   `;
 
+  showLoading(
+    'Завантаження інструкції...'
+  );
 
   try {
 
@@ -916,27 +1478,29 @@ async function openSection(
         }
       );
 
-
     renderContent(
       content
     );
 
+    window.scrollTo(
+      0,
+      0
+    );
 
   }
+
   catch(error) {
 
-    showError(
-      error
-    );
+    showError(error);
 
   }
 
 }
 
 
-// =====================================================
-// ПОКАЗ КОНТЕНТУ
-// =====================================================
+/* =====================================================
+   RENDER CONTENT
+===================================================== */
 
 function renderContent(
   content
@@ -992,11 +1556,9 @@ function renderContent(
         item['Заголовок'] ||
         '';
 
-
       const text =
         item['Текст'] ||
         '';
-
 
       const photoId =
         item['ФотоID'] ||
@@ -1007,18 +1569,14 @@ function renderContent(
 
         <div class="step">
 
-          <div>
+          <div class="step-header">
 
             <span class="step-number">
-
               ${escapeHtml(number)}
-
             </span>
 
             <h3>
-
               ${escapeHtml(title)}
-
             </h3>
 
           </div>
@@ -1052,19 +1610,13 @@ function renderContent(
         html += `
 
           <p>
-
             ${escapeHtml(text)}
-
           </p>
 
         `;
 
       }
 
-
-      // ===============================================
-      // GOOGLE DRIVE ФОТО
-      // ===============================================
 
       if (photoId) {
 
@@ -1083,10 +1635,6 @@ function renderContent(
       }
 
 
-      // ===============================================
-      // ВІДЕО
-      // ===============================================
-
       if (
         item['Відео']
       ) {
@@ -1096,15 +1644,14 @@ function renderContent(
           <p>
 
             <a
+              class="video-link"
               href="${escapeHtml(
                 item['Відео']
               )}"
               target="_blank"
               rel="noopener"
             >
-
               ▶️ Відкрити відео
-
             </a>
 
           </p>
@@ -1130,9 +1677,68 @@ function renderContent(
 }
 
 
-// =====================================================
-// PWA SERVICE WORKER
-// =====================================================
+/* =====================================================
+   TEST CONNECTION
+===================================================== */
+
+async function testConnection() {
+
+  const oldText =
+    statusElement.textContent;
+
+  statusElement.textContent =
+    '● Перевірка...';
+
+  try {
+
+    await apiRequest(
+      'sections'
+    );
+
+    statusElement.textContent =
+      '● Підключення OK';
+
+    statusElement.style.color =
+      '#9cffb0';
+
+    setTimeout(
+      updateConnectionStatus,
+      3000
+    );
+
+  }
+
+  catch(error) {
+
+    statusElement.textContent =
+      '● Помилка';
+
+    statusElement.style.color =
+      '#ffb4b4';
+
+    alert(
+      'Не вдалося підключитися:\n\n' +
+      error.message
+    );
+
+    setTimeout(
+      function() {
+
+        statusElement.textContent =
+          oldText;
+
+      },
+      3000
+    );
+
+  }
+
+}
+
+
+/* =====================================================
+   SERVICE WORKER
+===================================================== */
 
 if (
   'serviceWorker'
@@ -1144,12 +1750,15 @@ if (
     function() {
 
       navigator.serviceWorker
-        .register('./sw.js')
+        .register(
+          './sw.js'
+        )
         .then(
-          function() {
+          function(registration) {
 
             console.log(
-              'Service Worker OK'
+              'PWA Service Worker OK',
+              registration
             );
 
           }
@@ -1158,7 +1767,7 @@ if (
           function(error) {
 
             console.error(
-              'Service Worker:',
+              'PWA Service Worker error:',
               error
             );
 
@@ -1171,15 +1780,13 @@ if (
 }
 
 
-// =====================================================
-// ЗАПУСК
-// =====================================================
+/* =====================================================
+   START
+===================================================== */
 
 loadSections();
 
-
 </script>
-
 
 </body>
 
